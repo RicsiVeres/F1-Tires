@@ -1,0 +1,13 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-image:
+          linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+          url("./assets/menubgPC.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: auto;
+
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
