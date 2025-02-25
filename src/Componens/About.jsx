@@ -1,22 +1,26 @@
 import styled from "styled-components";
 import colors from "../colors.js";
+import { Element } from "react-scroll";
 
 function About() {
     return (
-        <Container>
-            <ContentWrapper>
-                <Header>
-                    About
-                    US
-                </Header>
-                <Text>
-                    At BISITIRES, you can buy good quality tires that will guarantee you the safe driving you need for
-                    your vehicle and at an unbeatable price. We have a large catalog where you are bound to find what you are
-                    looking for. Among our stock you will find passenger vehicle tires suitable for your use of your car at the
-                    ideal size.
-                </Text>
-            </ContentWrapper>
-        </Container>
+        <Element name="about">
+            <Container>
+                <ContentWrapper>
+                    <Header>
+                        About
+                        US
+                    </Header>
+                    <Text>
+                        At BISITIRES, you can buy good quality tires that will guarantee you the safe driving you need for
+                        your vehicle and at an unbeatable price. We have a large catalog where you are bound to find what you are
+                        looking for. Among our stock you will find passenger vehicle tires suitable for your use of your car at the
+                        ideal size.
+                    </Text>
+                </ContentWrapper>
+            </Container>
+        </Element>
+
     )
 }
 

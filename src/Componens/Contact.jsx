@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import colors from "../colors.js";
+import { Element } from "react-scroll";
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -26,61 +27,64 @@ const Contact = () => {
     }
 
     return (
-        <FormWrapper>
-            <Heading>
-                Get in touch <br/>
-                <span>CONTACT</span>
-            </Heading>
-            <Box>
-                <StyledForm onSubmit={handleSubmit}>
-                    <InputGroup>
-                        <Select
-                            name="subject"
-                            value={formData.subject}
-                            onChange={handleChange}
-                        >
-                            <option value="">Subject</option>
-                            <option value="General Inquiry">General Inquiry</option>
-                            <option value="Support">Support</option>
-                            <option value="Feedback">Feedback</option>
-                        </Select>
-                        <GridContainer>
-                            <Input
-                                type="email"
-                                name="email"
-                                placeholder="Email"
-                                value={formData.email}
+        <Element name="contact">
+            <FormWrapper id="contactForm">
+                <Heading>
+                    Get in touch <br/>
+                    <span>CONTACT</span>
+                </Heading>
+                <Box>
+                    <StyledForm onSubmit={handleSubmit}>
+                        <InputGroup>
+                            <Select
+                                name="subject"
+                                value={formData.subject}
+                                onChange={handleChange}
+                            >
+                                <option value="">Subject</option>
+                                <option value="General Inquiry">General Inquiry</option>
+                                <option value="Support">Support</option>
+                                <option value="Feedback">Feedback</option>
+                            </Select>
+                            <GridContainer>
+                                <Input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                />
+                                <Input
+                                    type="tel"
+                                    name="phone"
+                                    placeholder="Phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                />
+                            </GridContainer>
+                            <TextArea
+                                name="message"
+                                placeholder="Message"
+                                value={formData.message}
                                 onChange={handleChange}
                             />
-                            <Input
-                                type="tel"
-                                name="phone"
-                                placeholder="Phone"
-                                value={formData.phone}
-                                onChange={handleChange}
-                            />
-                        </GridContainer>
-                        <TextArea
-                            name="message"
-                            placeholder="Message"
-                            value={formData.message}
-                            onChange={handleChange}
-                        />
-                    </InputGroup>
-                    <SubmitButton type="submit">
-                        SEND
-                    </SubmitButton>
-                </StyledForm>
+                        </InputGroup>
+                        <SubmitButton type="submit">
+                            SEND
+                        </SubmitButton>
+                    </StyledForm>
 
-                <ComoanzPOS>
-                    <img src="https://i.imgur.com/qJf6gtn.png" alt="company position"  onClick={handleClick}  />
-                    <PhoneBubble>
-                        <PhoneNumber>+38 (099) 096-14-99</PhoneNumber>
-                        <Address>С. Кінчеш Вул. Шевченка, 58a</Address>
-                    </PhoneBubble>
-                </ComoanzPOS>
-            </Box>
-        </FormWrapper>
+                    <ComoanzPOS>
+                        <img src="https://i.imgur.com/qJf6gtn.png" alt="company position"  onClick={handleClick}  />
+                        <PhoneBubble>
+                            <PhoneNumber>+38 (099) 096-14-99</PhoneNumber>
+                            <Address>С. Кінчеш Вул. Шевченка, 58a</Address>
+                        </PhoneBubble>
+                    </ComoanzPOS>
+                </Box>
+            </FormWrapper>
+        </Element>
+
     );
 };
 

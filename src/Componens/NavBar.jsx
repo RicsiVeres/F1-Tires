@@ -7,6 +7,7 @@ import TiresLine from "../assets/tiresLine.png";
 
 import { FiMenu, FiX } from "react-icons/fi";
 import LanguageSelector from "./LanguageSelector.jsx";
+import { Link } from "react-scroll";
 
 function NavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,10 +17,18 @@ function NavBar() {
             <NavigationBar>
                 <img src={logo} alt="company logo" />
                 <DesktopMenu>
-                    <a href="">Home</a>
-                    <a href="">About Us</a>
-                    <a href="">Services</a>
-                    <a href="">Contact</a>
+                    <Link to="home" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)} style={{cursor: "pointer"}}>
+                        Home
+                    </Link>
+                    <Link to="about" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)} style={{cursor: "pointer"}}>
+                        About Us
+                    </Link>
+                    <Link to="services" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)} style={{cursor: "pointer"}}>
+                        Services
+                    </Link>
+                    <Link to="contact" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)} style={{cursor: "pointer"}}>
+                        Contact
+                    </Link>
                 </DesktopMenu>
 
                 <Hamburger onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -35,10 +44,19 @@ function NavBar() {
 
                 <MobileContent>
                     <MobileMenu>
-                        <a href="" onClick={() => setIsMenuOpen(false)}>Home</a>
-                        <a href="" onClick={() => setIsMenuOpen(false)}>About Us</a>
-                        <a href="" onClick={() => setIsMenuOpen(false)}>Services</a>
-                        <a href="" onClick={() => setIsMenuOpen(false)}>Contact</a>
+                        <Link to="home" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
+                            Home
+                        </Link>
+                        <Link to="about" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
+                            About Us
+                        </Link>
+                        <Link to="services" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
+                            Services
+                        </Link>
+                        <Link to="contact" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
+                            Contact
+                        </Link>
+
                     </MobileMenu>
 
                     <LanguageSelector />

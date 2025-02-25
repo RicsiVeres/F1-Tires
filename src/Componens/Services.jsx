@@ -3,52 +3,56 @@ import colors from "../colors.js";
 import TireFromTiresLine from "../assets/TiresWithTiresLine.png";
 import HorizontalLine from "../assets/horizontaltiresline.png";
 import TiresIcon from "../assets/tireIcon.png";
+import { Element } from "react-scroll";
 function Services() {
     return (
-        <Box>
-            <Decoration src={HorizontalLine} alt="HorizontalLine" />
-            <Title>
-                <span>Our</span> <br /> <b>Services</b>
-            </Title>
+        <Element name="services">
+            <Box>
+                <Decoration src={HorizontalLine} alt="HorizontalLine" />
+                <Title>
+                    <span>Our</span> <br /> <b>Services</b>
+                </Title>
 
 
-            <ServicesContainer>
-                <ServiceColumn>
-                    <Service>
-                        <img src={TiresIcon} alt="TiresIcon"/>
-                        <h2>Shipping</h2>
-                        <SmallText>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat
-                            dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.
-                        </SmallText>
-                    </Service>
-                </ServiceColumn>
+                <ServicesContainer>
+                    <ServiceColumn>
+                        <Service>
+                            <img src={TiresIcon} alt="TiresIcon"/>
+                            <h2>Shipping</h2>
+                            <SmallText>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat
+                                dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.
+                            </SmallText>
+                        </Service>
+                    </ServiceColumn>
 
-                <ServiceColumn>
-                    <Service>
-                        <img src={TiresIcon} alt="TiresIcon"/>
-                        <h2>Recycling</h2>
-                        <SmallText>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis
-                            sit consectetur ac. Tortor nunc mauris sit tristique proin.
-                        </SmallText>
-                    </Service>
-                </ServiceColumn>
+                    <ServiceColumn>
+                        <Service>
+                            <img src={TiresIcon} alt="TiresIcon"/>
+                            <h2>Recycling</h2>
+                            <SmallText>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis
+                                sit consectetur ac. Tortor nunc mauris sit tristique proin.
+                            </SmallText>
+                        </Service>
+                    </ServiceColumn>
 
-                <ServiceColumn>
-                    <Service>
-                        <img src={TiresIcon} alt="TiresIcon"/>
-                        <h2>Tire Sales</h2>
-                        <SmallText>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget
-                            nisi.
-                            Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.
-                        </SmallText>
-                    </Service>
-                </ServiceColumn>
-            </ServicesContainer>
-            <TireImage src={TireFromTiresLine} alt="TireFromTiresLine" />
-        </Box>
+                    <ServiceColumn>
+                        <Service>
+                            <img src={TiresIcon} alt="TiresIcon"/>
+                            <h2>Tire Sales</h2>
+                            <SmallText>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget
+                                nisi.
+                                Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.
+                            </SmallText>
+                        </Service>
+                    </ServiceColumn>
+                </ServicesContainer>
+                <TireImage src={TireFromTiresLine} alt="TireFromTiresLine" />
+            </Box>
+        </Element>
+
     );
 }
 
