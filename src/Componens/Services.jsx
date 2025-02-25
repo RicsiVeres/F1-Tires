@@ -2,6 +2,7 @@ import styled from "styled-components";
 import colors from "../colors.js";
 import TireFromTiresLine from "../assets/TiresWithTiresLine.png";
 import HorizontalLine from "../assets/horizontaltiresline.png";
+import TiresIcon from "../assets/tireIcon.png";
 function Services() {
     return (
         <Box>
@@ -14,6 +15,7 @@ function Services() {
             <ServicesContainer>
                 <ServiceColumn>
                     <Service>
+                        <img src={TiresIcon} alt="TiresIcon"/>
                         <h2>Shipping</h2>
                         <SmallText>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat
@@ -24,6 +26,7 @@ function Services() {
 
                 <ServiceColumn>
                     <Service>
+                        <img src={TiresIcon} alt="TiresIcon"/>
                         <h2>Recycling</h2>
                         <SmallText>
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis
@@ -34,9 +37,11 @@ function Services() {
 
                 <ServiceColumn>
                     <Service>
+                        <img src={TiresIcon} alt="TiresIcon"/>
                         <h2>Tire Sales</h2>
                         <SmallText>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi.
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget
+                            nisi.
                             Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.
                         </SmallText>
                     </Service>
@@ -59,12 +64,12 @@ const Box = styled.div`
     overflow: hidden;
 
     @media (max-width: 768px) {
-        img{
+        img {
             display: block;
         }
-        margin: 15rem auto 0 auto;
+
         padding: 150px 5% 50px;
-        margin-top: 36rem;
+        margin: 36rem auto 0;
     }
 `;
 
@@ -112,7 +117,7 @@ const Service = styled.div`
 const SmallText = styled.p`
     color: ${colors.white};
     line-height: 1.6;
-    font-size: 0.9rem
+    font-size: 0.9rem;
     font-family: Poppins;
 `;
 
@@ -124,7 +129,7 @@ const TireImage = styled.img`
     width: 600px;
     opacity: 0.9;
     z-index: 1;
-    zoom: .75;
+    zoom: .9;
 
     @media (max-width: 768px) {
         display: none;
