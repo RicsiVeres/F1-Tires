@@ -4,6 +4,7 @@ import Home from "./Componens/Home.jsx";
 import Services from "./Componens/Services.jsx";
 import About from "./Componens/About.jsx";
 import Contact from "./Componens/Contact.jsx";
+import Footer from "./Componens/Footer.jsx";
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           </div>
           <Services/>
           <Contact />
+          <Footer />
       </>
   )
 }
