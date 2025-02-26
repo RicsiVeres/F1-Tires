@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import HomePageTires from "../assets/HomePageTires.png";
 import colors from "../colors.js";
+import { useTranslation } from "react-i18next";
 
 function Home() {
+    const { t } = useTranslation();
     return (
         <>
             <DesktopWrapper>
@@ -15,20 +17,14 @@ function Home() {
                     <Box>
                         <Container>
                             <h1>
-                                Used Tires
+                                {t("usedTires")}
                                 <br />
                                 <span style={{ color: `${colors.primary}`, textTransform: "uppercase" }}>
-                  At very Affordable <br />
-                  Prices
+                  {t("affordablePrices")}
                 </span>
                             </h1>
-                            <TextParagraph>
-                                Without tires, no travel by car or motorbike. Vehicle tires must be in good condition and
-                                suitable for the type of road. When the time comes to change them, sometimes even in an emergency if you have
-                                a tire, you often have to seek a tire sales professional quickly. We would like him to be able to
-                                offer us a wide range of tires at reasonable prices.
-                            </TextParagraph>
-                            <ContactUSbtn>CONTACT US</ContactUSbtn>
+                            <TextParagraph>{t("paragraph")}</TextParagraph>
+                            <ContactUSbtn>{t("contactUs")}</ContactUSbtn>
                         </Container>
                     </Box>
                 </Box>
@@ -38,20 +34,14 @@ function Home() {
             <MobileWrapper>
                 <MobileTextContainer>
                     <h1>
-                        Used Tires
+                        {t("usedTires")}
                         <br />
                         <span style={{ color: `${colors.primary}`, textTransform: "uppercase" }}>
-              At very Affordable <br />
-              Prices
+              {t("affordablePrices")}
             </span>
                     </h1>
-                    <TextParagraph>
-                        Without tires, no travel by car or motorbike. Vehicle tires must be in good condition and
-                        suitable for the type of road. When the time comes to change them, sometimes even in an emergency if you have
-                        a tire, you often have to seek a tire sales professional quickly. We would like him to be able to
-                        offer us a wide range of tires at reasonable prices.
-                    </TextParagraph>
-                    <ContactUSbtn>CONTACT US</ContactUSbtn>
+                    <TextParagraph>{t("paragraph")}</TextParagraph>
+                    <ContactUSbtn>{t("contactUs")}</ContactUSbtn>
                 </MobileTextContainer>
                 <MobileImageContainer>
                     <img src={HomePageTires} alt="HomePageTires" />
@@ -92,30 +82,30 @@ const TextParagraph = styled.p`
 `;
 
 const ContactUSbtn = styled.button`
-  background: ${colors.primary};
-  border: none;
-  color: ${colors.white};
-  border-radius: 1.5rem;
-  padding: 1.2rem 3.5rem;
+    background: ${colors.primary};
+    border: none;
+    color: ${colors.white};
+    border-radius: 1.5rem;
+    padding: 1.2rem 3.5rem;
 `;
 
 const MobileWrapper = styled.div`
-  display: none;
-  @media (max-width: 768px) {
-    display: block;
-    max-width: 1116px;
-    margin: 0 auto;
-    padding: 1rem;
-    text-align: center;
-  }
+    display: none;
+    @media (max-width: 768px) {
+        display: block;
+        max-width: 1116px;
+        margin: 0 auto;
+        padding: 1rem;
+        text-align: center;
+    }
 `;
 
 const MobileTextContainer = styled.div`
-  margin-bottom: 2rem;
+    margin-bottom: 2rem;
 `;
 
 const MobileImageContainer = styled.div`
-  img {
-    max-width: 100%;
-  }
+    img {
+        max-width: 100%;
+    }
 `;

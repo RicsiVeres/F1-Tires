@@ -2,8 +2,10 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import colors from "../colors.js";
 import { Element } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+    const { t } = useTranslation();
     const [formData, setFormData] = useState({
         subject: '',
         email: '',
@@ -22,6 +24,7 @@ const Contact = () => {
             [e.target.name]: e.target.value
         });
     };
+
     function handleClick() {
         window.open('https://maps.app.goo.gl/84cbsF9ou8oDzURy8', '_blank');
     }
@@ -30,8 +33,8 @@ const Contact = () => {
         <Element name="contact">
             <FormWrapper id="contactForm">
                 <Heading>
-                    Get in touch <br/>
-                    <span>CONTACT</span>
+                    {t("contact.getInTouch")} <br/>
+                    <span>{t("contact.contact")}</span>
                 </Heading>
                 <Box>
                     <StyledForm onSubmit={handleSubmit}>
@@ -41,50 +44,49 @@ const Contact = () => {
                                 value={formData.subject}
                                 onChange={handleChange}
                             >
-                                <option value="">Subject</option>
-                                <option value="General Inquiry">General Inquiry</option>
-                                <option value="Support">Support</option>
-                                <option value="Feedback">Feedback</option>
+                                <option value="">{t("contact.subject")}</option>
+                                <option value="general">{t("contact.generalInquiry")}</option>
+                                <option value="support">{t("contact.support")}</option>
+                                <option value="feedback">{t("contact.feedback")}</option>
                             </Select>
                             <GridContainer>
                                 <Input
                                     type="email"
                                     name="email"
-                                    placeholder="Email"
+                                    placeholder={t("contact.email")}
                                     value={formData.email}
                                     onChange={handleChange}
                                 />
                                 <Input
                                     type="tel"
                                     name="phone"
-                                    placeholder="Phone"
+                                    placeholder={t("contact.phone")}
                                     value={formData.phone}
                                     onChange={handleChange}
                                 />
                             </GridContainer>
                             <TextArea
                                 name="message"
-                                placeholder="Message"
+                                placeholder={t("contact.message")}
                                 value={formData.message}
                                 onChange={handleChange}
                             />
                         </InputGroup>
                         <SubmitButton type="submit">
-                            SEND
+                            {t("contact.send")}
                         </SubmitButton>
                     </StyledForm>
 
                     <ComoanzPOS>
-                        <img src="https://i.imgur.com/qJf6gtn.png" alt="company position"  onClick={handleClick}  />
+                        <img src="https://i.imgur.com/qJf6gtn.png" alt="company position" onClick={handleClick} />
                         <PhoneBubble>
-                            <PhoneNumber>+38 (099) 096-14-99</PhoneNumber>
-                            <Address>С. Кінчеш Вул. Шевченка, 58a</Address>
+                            <PhoneNumber>{t("contact.phoneNumber")}</PhoneNumber>
+                            <Address>{t("contact.address")}</Address>
                         </PhoneBubble>
                     </ComoanzPOS>
                 </Box>
             </FormWrapper>
         </Element>
-
     );
 };
 
@@ -251,7 +253,6 @@ const Input = styled.input`
         max-width: 100%;
         min-width: auto;
         width: 93%;
-        
     }
 `;
 

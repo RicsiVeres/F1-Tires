@@ -7,9 +7,12 @@ import TiresLine from "../assets/tiresLine.png";
 
 import { FiMenu, FiX } from "react-icons/fi";
 import LanguageSelector from "./LanguageSelector.jsx";
+import "../Componens/i18n.js"; // i18n inicializálása
 import { Link } from "react-scroll";
+import { useTranslation } from "react-i18next";
 
 function NavBar() {
+    const { t } = useTranslation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
@@ -17,22 +20,50 @@ function NavBar() {
             <NavigationBar>
                 <img src={logo} alt="company logo" />
                 <DesktopMenu>
-                    <Link to="home" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)} style={{cursor: "pointer"}}>
-                        Home
+                    <Link
+                        to="home"
+                        smooth={true}
+                        duration={500}
+                        onClick={() => setIsMenuOpen(false)}
+                        style={{ cursor: "pointer" }}
+                    >
+                        {t("nav.home")}
                     </Link>
-                    <Link to="about" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)} style={{cursor: "pointer"}}>
-                        About Us
+                    <Link
+                        to="about"
+                        smooth={true}
+                        duration={500}
+                        onClick={() => setIsMenuOpen(false)}
+                        style={{ cursor: "pointer" }}
+                    >
+                        {t("nav.about")}
                     </Link>
-                    <Link to="services" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)} style={{cursor: "pointer"}}>
-                        Services
+                    <Link
+                        to="services"
+                        smooth={true}
+                        duration={500}
+                        onClick={() => setIsMenuOpen(false)}
+                        style={{ cursor: "pointer" }}
+                    >
+                        {t("nav.services")}
                     </Link>
-                    <Link to="contact" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)} style={{cursor: "pointer"}}>
-                        Contact
+                    <Link
+                        to="contact"
+                        smooth={true}
+                        duration={500}
+                        onClick={() => setIsMenuOpen(false)}
+                        style={{ cursor: "pointer" }}
+                    >
+                        {t("nav.contact")}
                     </Link>
                 </DesktopMenu>
 
                 <Hamburger onClick={() => setIsMenuOpen(!isMenuOpen)}>
-                    {isMenuOpen ? <FiX size={36} style={{color: `${colors.white}`}} /> : <FiMenu size={36} />}
+                    {isMenuOpen ? (
+                        <FiX size={36} style={{ color: `${colors.white}` }} />
+                    ) : (
+                        <FiMenu size={36} />
+                    )}
                 </Hamburger>
             </NavigationBar>
 
@@ -44,29 +75,53 @@ function NavBar() {
 
                 <MobileContent>
                     <MobileMenu>
-                        <Link to="home" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
-                            Home
+                        <Link
+                            to="home"
+                            smooth={true}
+                            duration={500}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            {t("nav.home")}
                         </Link>
-                        <Link to="about" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
-                            About Us
+                        <Link
+                            to="about"
+                            smooth={true}
+                            duration={500}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            {t("nav.about")}
                         </Link>
-                        <Link to="services" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
-                            Services
+                        <Link
+                            to="services"
+                            smooth={true}
+                            duration={500}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            {t("nav.services")}
                         </Link>
-                        <Link to="contact" smooth={true} duration={500} onClick={() => setIsMenuOpen(false)}>
-                            Contact
+                        <Link
+                            to="contact"
+                            smooth={true}
+                            duration={500}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            {t("nav.contact")}
                         </Link>
-
                     </MobileMenu>
 
                     <LanguageSelector />
                 </MobileContent>
             </MobileMenuWrapper>
 
-            <Overlay isVisible={isMenuOpen} onClick={() => setIsMenuOpen(false)} />
+            <Overlay
+                isVisible={isMenuOpen}
+                onClick={() => setIsMenuOpen(false)}
+            />
         </>
     );
 }
+
+export default NavBar;
 
 const NavigationBar = styled.div`
     display: flex;
@@ -88,7 +143,6 @@ const NavigationBar = styled.div`
         padding: 1rem;
         justify-content: center;
 
-        /* The logo should be placed below the hamburger in mobile view, centered */
         img {
             order: 2;
             margin-top: 5rem;
@@ -97,7 +151,6 @@ const NavigationBar = styled.div`
         }
     }
 `;
-
 
 const DesktopMenu = styled.div`
     display: flex;
@@ -143,7 +196,7 @@ const MobileMenuWrapper = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    transform: translateX(${({ isOpen }) => isOpen ? "0" : "-100%"});
+    transform: translateX(${({ isOpen }) => (isOpen ? "0" : "-100%")});
     transition: transform 0.3s ease-in-out;
     z-index: 1500;
 `;
@@ -175,8 +228,8 @@ const MenuBackground = styled.div`
 const TopGradient = styled.div`
     height: 100vh;
     background: linear-gradient(#FF3636 0%, #242424 70%);
-    opacity: 0.85; 
-    position: absolute; 
+    opacity: 0.85;
+    position: absolute;
     width: 100%;
 `;
 
@@ -192,9 +245,8 @@ const MobileContent = styled.div`
     align-items: center;
     justify-content: center;
     padding: 20% 0;
-    color: white; 
+    color: white;
 `;
-
 
 const MobileMenu = styled.div`
     display: flex;
@@ -210,7 +262,7 @@ const MobileMenu = styled.div`
         font-weight: bold;
         text-decoration: none;
         transition: color 0.2s;
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.7); // Árnyékolás
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 
         &:hover {
             color: ${colors.primary};
@@ -219,16 +271,14 @@ const MobileMenu = styled.div`
 `;
 
 const Overlay = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 1000;
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
-  visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
-  transition: all 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+    visibility: ${({ isVisible }) => (isVisible ? "visible" : "hidden")};
+    transition: all 0.3s ease;
 `;
-
-export default NavBar;

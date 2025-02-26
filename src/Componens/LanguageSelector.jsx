@@ -1,14 +1,17 @@
-import {useState} from "react";
+import { useState } from "react";
 import styled from "styled-components";
 import colors from "../colors.js";
+import i18n from "../Componens/i18n.js"; // Import a saját konfigurációd szerint
 
 function LanguageSelector() {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedLanguage, setSelectedLanguage] = useState("UA");
+    const [selectedLanguage, setSelectedLanguage] = useState("EN");
 
     const toggleDropdown = () => setIsOpen(!isOpen);
-    const selectLanguage = (lang) => {
-        setSelectedLanguage(lang);
+
+    const handleChangeLanguage = (lang) => {
+        i18n.changeLanguage(lang); // A lang értéke itt "uk" vagy "en"
+        setSelectedLanguage(lang.toUpperCase());
         setIsOpen(false);
     };
 
@@ -19,17 +22,20 @@ function LanguageSelector() {
             </DropdownButton>
             {isOpen && (
                 <DropdownMenu>
-                    <DropdownItem onClick={() => selectLanguage("UA")}>UA</DropdownItem>
+                    <DropdownItem onClick={() => handleChangeLanguage("uk")}>
+                        UA
+                    </DropdownItem>
                     <Divider />
-                    <DropdownItem onClick={() => selectLanguage("EN")}>EN</DropdownItem>
+                    <DropdownItem onClick={() => handleChangeLanguage("en")}>
+                        EN
+                    </DropdownItem>
                 </DropdownMenu>
             )}
         </DropdownContainer>
     );
 }
+
 export default LanguageSelector;
-
-
 
 const DropdownContainer = styled.div`
     position: relative;
@@ -53,7 +59,7 @@ const DropdownButton = styled.button`
 const DropdownMenu = styled.div`
     position: absolute;
     left: 50%;
-    padding: .25rem 1rem;
+    padding: 0.25rem 1rem;
     transform: translateX(-50%);
     margin-top: 8px;
     width: 80px;
@@ -71,7 +77,6 @@ const DropdownItem = styled.button`
     border: none;
     color: white;
     text-align: center;
-    align-items: center;
     cursor: pointer;
     &:hover {
         background: ${colors.primary};

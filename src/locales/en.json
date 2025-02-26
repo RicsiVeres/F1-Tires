@@ -1,0 +1,45 @@
+{
+  "usedTires": "Used Tires",
+  "affordablePrices": "At very Affordable Prices",
+  "paragraph": "Without tires, no travel by car or motorbike. Vehicle tires must be in good condition and suitable for the type of road. When the time comes to change them, sometimes even in an emergency if you have a tire, you often have to seek a tire sales professional quickly. We would like him to be able to offer us a wide range of tires at reasonable prices.",
+  "contactUs": "CONTACT US",
+  "about": {
+    "header": "About US",
+    "text": "At BISITIRES, you can buy good quality tires that will guarantee you the safe driving you need for your vehicle and at an unbeatable price. We have a large catalog where you are bound to find what you are looking for. Among our stock you will find passenger vehicle tires suitable for your use of your car at the ideal size."
+  },
+  "contact": {
+    "getInTouch": "Get in touch",
+    "contact": "CONTACT",
+    "subject": "Subject",
+    "generalInquiry": "General Inquiry",
+    "support": "Support",
+    "feedback": "Feedback",
+    "email": "Email",
+    "phone": "Phone",
+    "message": "Message",
+    "send": "SEND",
+    "phoneNumber": "+38 (099) 096-14-99",
+    "address": "С. Кінчеш Вул. Шевченка, 58a"
+  },
+
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "contact": "Contact"
+  },
+
+
+  "services": {
+    "our": "Our",
+    "services": "Services",
+    "shippingTitle": "Shipping",
+    "shippingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.",
+    "recyclingTitle": "Recycling",
+    "recyclingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.",
+    "tireSalesTitle": "Tire Sales",
+    "tireSalesText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin."
+  }
+}
+
+

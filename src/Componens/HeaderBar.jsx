@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import colors from "../colors.js";
 import LanguageSelector from "./LanguageSelector.jsx";
+import "../Componens/i18n.js"; // i18n inicializálása
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import RoomIcon from '@mui/icons-material/Room';

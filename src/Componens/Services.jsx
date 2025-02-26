@@ -4,55 +4,47 @@ import TireFromTiresLine from "../assets/TiresWithTiresLine.png";
 import HorizontalLine from "../assets/horizontaltiresline.png";
 import TiresIcon from "../assets/tireIcon.png";
 import { Element } from "react-scroll";
+import { useTranslation } from "react-i18next";
+
 function Services() {
+    const { t } = useTranslation();
+
     return (
         <Element name="services">
             <Box>
                 <Decoration src={HorizontalLine} alt="HorizontalLine" />
                 <Title>
-                    <span>Our</span> <br /> <b>Services</b>
+                    <span>{t("services.our")}</span> <br /> <b>{t("services.services")}</b>
                 </Title>
-
 
                 <ServicesContainer>
                     <ServiceColumn>
                         <Service>
-                            <img src={TiresIcon} alt="TiresIcon"/>
-                            <h2>Shipping</h2>
-                            <SmallText>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat
-                                dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.
-                            </SmallText>
+                            <img src={TiresIcon} alt="TiresIcon" />
+                            <h2>{t("services.shippingTitle")}</h2>
+                            <SmallText>{t("services.shippingText")}</SmallText>
                         </Service>
                     </ServiceColumn>
 
                     <ServiceColumn>
                         <Service>
-                            <img src={TiresIcon} alt="TiresIcon"/>
-                            <h2>Recycling</h2>
-                            <SmallText>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis
-                                sit consectetur ac. Tortor nunc mauris sit tristique proin.
-                            </SmallText>
+                            <img src={TiresIcon} alt="TiresIcon" />
+                            <h2>{t("services.recyclingTitle")}</h2>
+                            <SmallText>{t("services.recyclingText")}</SmallText>
                         </Service>
                     </ServiceColumn>
 
                     <ServiceColumn>
                         <Service>
-                            <img src={TiresIcon} alt="TiresIcon"/>
-                            <h2>Tire Sales</h2>
-                            <SmallText>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget
-                                nisi.
-                                Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.
-                            </SmallText>
+                            <img src={TiresIcon} alt="TiresIcon" />
+                            <h2>{t("services.tireSalesTitle")}</h2>
+                            <SmallText>{t("services.tireSalesText")}</SmallText>
                         </Service>
                     </ServiceColumn>
                 </ServicesContainer>
                 <TireImage src={TireFromTiresLine} alt="TireFromTiresLine" />
             </Box>
         </Element>
-
     );
 }
 
@@ -133,18 +125,19 @@ const TireImage = styled.img`
     width: 600px;
     opacity: 0.9;
     z-index: 1;
-    zoom: .9;
+    zoom: 0.9;
 
     @media (max-width: 768px) {
         display: none;
         opacity: 0;
     }
 `;
+
 const Decoration = styled.img`
     display: none;
     @media (max-width: 768px) {
         position: absolute;
-        zoom: .5;
+        zoom: 0.5;
         top: 0;
         right: 0;
     }
