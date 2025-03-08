@@ -26,7 +26,7 @@ const Contact = () => {
     };
 
     function handleClick() {
-        window.open('https://maps.app.goo.gl/84cbsF9ou8oDzURy8', '_blank');
+        window.open('https://maps.app.goo.gl/SBM9wZYyNydCS6Eu5', '_blank');
     }
 
     return (
