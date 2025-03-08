@@ -21,7 +21,7 @@ function HeaderBar() {
                 </ContactLink>
 
                 <ContactLink
-                    href="https://maps.app.goo.gl/GecJBev9wbjRjo278"
+                    href="https://maps.app.goo.gl/SBM9wZYyNydCS6Eu5"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
