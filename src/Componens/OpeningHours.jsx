@@ -52,7 +52,7 @@ export default function OpeningHours() {
         {loading ? (
           <LoadingState>Графік роботи...</LoadingState>
         ) : error ? (
-          <LoadingState>Hiba: {error}</LoadingState>
+          <LoadingState>Error: {error}</LoadingState>
         ) : (
           <GridContainer>
             {hours.map((item, index) => (
