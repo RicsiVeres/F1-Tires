@@ -28,7 +28,8 @@
     "home": "Головна",
     "about": "Про нас",
     "services": "Послуги",
-    "contact": "Контакт"
+    "contact": "Контакт",
+    "OpeningHours": "Графік роботи"
   },
 
   "services": {

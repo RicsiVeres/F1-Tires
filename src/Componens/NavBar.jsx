@@ -56,6 +56,15 @@ function NavBar() {
                     >
                         {t("nav.contact")}
                     </Link>
+                    <Link
+                        to="OpeningHours"
+                        smooth={true}
+                        duration={500}
+                        onClick={() => setIsMenuOpen(false)}
+                        style={{ cursor: "pointer" }}
+                    >
+                        {t("nav.OpeningHours")}
+                    </Link>
                 </DesktopMenu>
 
                 <Hamburger onClick={() => setIsMenuOpen(!isMenuOpen)}>
@@ -107,6 +116,15 @@ function NavBar() {
                         >
                             {t("nav.contact")}
                         </Link>
+                        <Link
+                            to="OpeningHours"
+                            smooth={true}
+                            duration={500}
+                            onClick={() => setIsMenuOpen(false)}
+                        >
+                            {t("nav.OpeningHours")}
+                        </Link>
+                    
                     </MobileMenu>
 
                     <LanguageSelector />
