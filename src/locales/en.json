@@ -19,7 +19,8 @@
     "message": "Message",
     "send": "SEND",
     "phoneNumber": "+38 (099) 096-14-99",
-    "address": "С. Кінчеш Вул. Шевченка, 58a"
+    "address": "С. Кінчеш Вул. Шевченка, 58a",
+    "success": "Sent successfully!"
   },
 
   "nav": {

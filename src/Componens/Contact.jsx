@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import colors from "../colors.js";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     const { t } = useTranslation();
@@ -12,10 +13,37 @@ const Contact = () => {
         phone: '',
         message: ''
     });
+    const [isSending, setIsSending] = useState(false);
+    const [sendStatus, setSendStatus] = useState('');
+    const [showMessage, setShowMessage] = useState(true);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Form submission logic
+        setIsSending(true);
+        setSendStatus('');
+        setShowMessage(true);
+
+        emailjs.send(
+            'service_jqm4fco',
+            'template_sdb8tit',
+            {
+                subject: formData.subject,
+                email: formData.email,
+                phone: formData.phone,
+                message: formData.message,
+            },
+            'ydn1XkDmFammlibxl'
+        )
+            .then(() => {
+                setSendStatus('success');
+                setFormData({ subject: '', email: '', phone: '', message: '' });
+            })
+            .catch(() => {
+                setSendStatus('error');
+            })
+            .finally(() => {
+                setIsSending(false);
+            });
     };
 
     const handleChange = (e) => {
@@ -28,6 +56,15 @@ const Contact = () => {
     function handleClick() {
         window.open('https://maps.app.goo.gl/SBM9wZYyNydCS6Eu5', '_blank');
     }
+
+    useEffect(() => {
+        if (sendStatus) {
+            const timer = setTimeout(() => {
+                setShowMessage(false);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [sendStatus]);
 
     return (
         <Element name="contact">
@@ -43,6 +80,7 @@ const Contact = () => {
                                 name="subject"
                                 value={formData.subject}
                                 onChange={handleChange}
+                                required
                             >
                                 <option value="">{t("contact.subject")}</option>
                                 <option value="general">{t("contact.generalInquiry")}</option>
@@ -56,6 +94,7 @@ const Contact = () => {
                                     placeholder={t("contact.email")}
                                     value={formData.email}
                                     onChange={handleChange}
+                                    required
                                 />
                                 <Input
                                     type="tel"
@@ -70,11 +109,20 @@ const Contact = () => {
                                 placeholder={t("contact.message")}
                                 value={formData.message}
                                 onChange={handleChange}
+                                required
+                                minLength="10"
                             />
                         </InputGroup>
-                        <SubmitButton type="submit">
-                            {t("contact.send")}
+                        <SubmitButton type="submit" disabled={isSending}>
+                            {isSending ? t("contact.sending") : t("contact.send")}
                         </SubmitButton>
+
+                        {sendStatus === 'success' && showMessage && (
+                            <StatusMessage success>{t("contact.success")}</StatusMessage>
+                        )}
+                        {sendStatus === 'error' && showMessage && (
+                            <StatusMessage>{t("contact.error")}</StatusMessage>
+                        )}
                     </StyledForm>
 
                     <ComoanzPOS>
@@ -89,8 +137,6 @@ const Contact = () => {
         </Element>
     );
 };
-
-export default Contact;
 
 const Box = styled.div`
     display: flex;
@@ -305,3 +351,15 @@ const SubmitButton = styled.button`
         max-width: 100%;
     }
 `;
+
+const StatusMessage = styled.div`
+    color: ${props => props.success ? '#4CAF50' : '#ff4444'};
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    background: ${props => props.success ? '#e8f5e9' : '#ffebee'};
+    max-width: 462px;
+    width: 100%;
+`;
+
+export default Contact;
