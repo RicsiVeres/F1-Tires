@@ -8,7 +8,9 @@ function Footer() {
     return(
         <>
            <Box>
-               <img src={logo} alt=""/>
+               <a href="#">
+                <img src={logo} alt=""/>
+               </a>
                <p>Шиномонтаж &#34;Формула-1&#34; © {year}</p>
                <SocialMedia>
                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">

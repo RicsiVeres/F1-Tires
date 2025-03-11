@@ -18,7 +18,9 @@ function NavBar() {
     return (
         <>
             <NavigationBar>
-                <img src={logo} alt="company logo" />
+                <a href="#">
+                    <img src={logo} alt="company logo" />
+                </a>
                 <DesktopMenu>
                     <Link
                         to="home"

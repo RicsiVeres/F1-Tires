@@ -35,11 +35,11 @@
   "services": {
     "our": "Наші",
     "services": "Послуги",
-    "shippingTitle": "Доставка",
+    "shippingTitle": "Балансування коліс",
     "shippingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Українский переклад тут)",
-    "recyclingTitle": "Переробка",
+    "recyclingTitle": "Зварювання та розкатка дисків",
     "recyclingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Українский переклад тут)",
-    "tireSalesTitle": "Продаж шин",
+    "tireSalesTitle": "Монтаж, демонтаж та ремонт шин",
     "tireSalesText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Українский переклад тут)"
   }
 }
