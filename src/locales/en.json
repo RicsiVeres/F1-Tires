@@ -33,13 +33,28 @@
 
   "services": {
     "our": "Our",
+
     "services": "Services",
+
     "shippingTitle": "Shipping",
     "shippingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.",
+    "shippingPrice": "Price: $50/shipment",
+
     "recyclingTitle": "Recycling",
     "recyclingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.",
+    "recyclingPrice": "Price: $30/item",
+
     "tireSalesTitle": "Tire Sales",
-    "tireSalesText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin."
+    "tireSalesText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Non ultricies feugiat dolor eget nisi. Ac a, in turpis sit consectetur ac. Tortor nunc mauris sit tristique proin.",
+    "tireSalesPrice": "Price: $100/tire",
+
+    "newService1Title": "Tire Repair ",
+    "newService1Text": "Professional tire repair services to extend the life of your tires. We handle punctures, cracks, and other common issues.",
+    "newService1Price": "Price: $20/repair",
+
+    "newService2Title": "Seasonal Storage",
+    "newService2Text": "Store your tires safely during off-seasons. Our climate-controlled facilities ensure your tires remain in perfect condition.",
+    "newService2Price": "Price: $10/month per tire"
   }
 }
 

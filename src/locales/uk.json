@@ -31,16 +31,24 @@
     "contact": "Контакт",
     "OpeningHours": "Графік роботи"
   },
-
   "services": {
     "our": "Наші",
     "services": "Послуги",
     "shippingTitle": "Балансування коліс",
-    "shippingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Українский переклад тут)",
+    "shippingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Український переклад тут)",
+    "shippingPrice": "Ціна: 1500 грн/послуга",
     "recyclingTitle": "Зварювання та розкатка дисків",
-    "recyclingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Українский переклад тут)",
+    "recyclingText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Український переклад тут)",
+    "recyclingPrice": "Ціна: 1000 грн/диск",
     "tireSalesTitle": "Монтаж, демонтаж та ремонт шин",
-    "tireSalesText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Українский переклад тут)"
+    "tireSalesText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. (Український переклад тут)",
+    "tireSalesPrice": "Ціна: 500 грн/шина",
+    "newService1Title": "Ремонт шин",
+    "newService1Text": "Професійний ремонт шин для продовження терміну їх служби. Ми усуваємо проколи, тріщини та інші пошкодження.",
+    "newService1Price": "Ціна: 300 грн/ремонт",
+    "newService2Title": "Сезонне зберігання",
+    "newService2Text": "Безпечне зберігання шин у міжсезоння. Наші клімат-контрольовані приміщення гарантують ідеальний стан ваших шин.",
+    "newService2Price": "Ціна: 200 грн/місяць за шину"
   }
 }
 
