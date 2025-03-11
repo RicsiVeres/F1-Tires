@@ -37,7 +37,7 @@ const Contact = () => {
                     <span>{t("contact.contact")}</span>
                 </Heading>
                 <Box>
-                    <StyledForm onSubmit={handleSubmit}>
+                    <StyledForm onSubmit={handleSubmit} id="contactUs">
                         <InputGroup>
                             <Select
                                 name="subject"

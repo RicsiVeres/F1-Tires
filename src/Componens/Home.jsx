@@ -2,10 +2,11 @@ import styled from "styled-components";
 import HomePageTires from "../assets/HomePageTires.png";
 import colors from "../colors.js";
 import { useTranslation } from "react-i18next";
-
+import { Link } from "react-scroll";
 function Home() {
     const { t } = useTranslation();
-    return (
+
+        return (
         <>
             <DesktopWrapper>
                 <Box>
@@ -24,7 +25,14 @@ function Home() {
                 </span>
                             </h1>
                             <TextParagraph>{t("paragraph")}</TextParagraph>
-                            <ContactUSbtn>{t("contactUs")}</ContactUSbtn>
+                            
+                            <Link
+                                to="contact"
+                                smooth={true}
+                                duration={500}
+                            > 
+                                <ContactUSbtn>{t("contactUs")}</ContactUSbtn>
+                            </Link>
                         </Container>
                     </Box>
                 </Box>
