@@ -5,13 +5,49 @@ import HorizontalLine from "../assets/horizontaltiresline.png";
 import TiresIcon from "../assets/tireIcon.png";
 import { Element } from "react-scroll";
 import { useTranslation } from "react-i18next";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Services() {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const [expanded, setExpanded] = useState(false);
+    const [mainServices, setMainServices] = useState([]);
+    const [additionalServices, setAdditionalServices] = useState([]);
 
     const toggleExpand = () => setExpanded(!expanded);
+
+    useEffect(() => {
+        const fetchSheetData = async () => {
+            const spreadsheetId = import.meta.env.VITE_GOOGLE_SHEETS_ID
+            const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+            const lang = i18n.language === 'uk' ? 'ua' : i18n.language;
+
+            try {
+                // 1. Get all sheets
+                const metadataResponse = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}&fields=sheets(properties(title))`
+                );
+                const { sheets } = await metadataResponse.json();
+
+                // 2. Find sheet by language code
+                const sheet = sheets.find(s => s.properties.title.toLowerCase() === lang);
+                if (!sheet) throw new Error(`Sheet for language ${lang} not found`);
+
+                // 3. Get data from language-specific sheet
+                const dataResponse = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheet.properties.title}!A2:C?key=${apiKey}`
+                );
+                const { values } = await dataResponse.json();
+
+                // 4. Update services
+                setMainServices(values.slice(0, 3).map(([title, desc, price]) => ({ title, desc, price })));
+                setAdditionalServices(values.slice(3, 6).map(([title, desc, price]) => ({ title, desc, price })));
+            } catch (error) {
+                console.error("Error loading services:", error);
+            }
+        };
+
+        fetchSheetData();
+    }, [i18n.language]);
 
     return (
         <Element name="services">
@@ -22,59 +58,29 @@ function Services() {
                 </Title>
 
                 <ServicesContainer>
-                    <ServiceColumn>
-                        <Service>
-                            <img src={TiresIcon} alt="TiresIcon" />
-                            <h2>{t("services.recyclingTitle")}</h2>
-                            <SmallText>{t("services.recyclingText")}</SmallText>
-                            <Price>{t("services.recyclingPrice")}</Price>
-                        </Service>
-                    </ServiceColumn>
-
-                    <ServiceColumn>
-                        <Service>
-                            <img src={TiresIcon} alt="TiresIcon" />
-                            <h2>{t("services.tireSalesTitle")}</h2>
-                            <SmallText>{t("services.tireSalesText")}</SmallText>
-                            <Price>{t("services.tireSalesPrice")}</Price>
-                        </Service>
-                    </ServiceColumn>
-
-                    <ServiceColumn>
-                        <Service>
-                            <img src={TiresIcon} alt="TiresIcon" />
-                            <h2>{t("services.newService1Title")}</h2>
-                            <SmallText>{t("services.newService1Text")}</SmallText>
-                            <Price>{t("services.newService1Price")}</Price>
-                        </Service>
-                    </ServiceColumn>
+                    {mainServices.map((service, i) => (
+                        <ServiceColumn key={i}>
+                            <Service>
+                                <img src={TiresIcon} alt="TiresIcon" />
+                                <h2>{service.title}</h2>
+                                <SmallText>{service.desc}</SmallText>
+                                <Price>{service.price}</Price>
+                            </Service>
+                        </ServiceColumn>
+                    ))}
                 </ServicesContainer>
 
-                <ExpandedServices expanded={expanded} >
-                    <ServiceColumn>
-                        <Service>
-                            <img src={TiresIcon} alt="TiresIcon" />
-                            <h2>{t("services.recyclingTitle")}</h2>
-                            <SmallText>{t("services.recyclingText")}</SmallText>
-                            <Price>{t("services.recyclingPrice")}</Price>
-                        </Service>
-                    </ServiceColumn>
-                    <ServiceColumn>
-                        <Service>
-                            <img src={TiresIcon} alt="TiresIcon" />
-                            <h2>{t("services.newService2Title")}</h2>
-                            <SmallText>{t("services.newService2Text")}</SmallText>
-                            <Price>{t("services.newService2Price")}</Price>
-                        </Service>
-                    </ServiceColumn>
-                    <ServiceColumn>
-                        <Service>
-                            <img src={TiresIcon} alt="TiresIcon" />
-                            <h2>{t("services.newService2Title")}</h2>
-                            <SmallText>{t("services.newService2Text")}</SmallText>
-                            <Price>{t("services.newService2Price")}</Price>
-                        </Service>
-                    </ServiceColumn>
+                <ExpandedServices expanded={expanded}>
+                    {additionalServices.map((service, i) => (
+                        <ServiceColumn key={i}>
+                            <Service>
+                                <img src={TiresIcon} alt="TiresIcon" />
+                                <h2>{service.title}</h2>
+                                <SmallText>{service.desc}</SmallText>
+                                <Price>{service.price}</Price>
+                            </Service>
+                        </ServiceColumn>
+                    ))}
                 </ExpandedServices>
 
                 <ArrowButton onClick={toggleExpand}>
@@ -123,7 +129,6 @@ const ExpandedServices = styled.div`
     transition: all 0.6s ease-in-out;
     visibility: ${props => (props.expanded ? "visible" : "hidden")};
     margin-top: ${props => (props.expanded ? "4.5rem" : "0")};
-    
 
     @media (max-width: 768px) {
         flex-direction: column;
