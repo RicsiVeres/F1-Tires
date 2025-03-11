@@ -49,7 +49,13 @@ function Home() {
             </span>
                     </h1>
                     <TextParagraph>{t("paragraph")}</TextParagraph>
-                    <ContactUSbtn>{t("contactUs")}</ContactUSbtn>
+                    <Link
+                        to="contact"
+                        smooth={true}
+                        duration={500}
+                    >
+                        <ContactUSbtn>{t("contactUs")}</ContactUSbtn>
+                    </Link>
                 </MobileTextContainer>
                 <MobileImageContainer>
                     <img src={HomePageTires} alt="HomePageTires" />
