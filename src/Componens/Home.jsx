@@ -8,6 +8,9 @@ function Home() {
 
         return (
         <>
+            <h1 className="sr-only">
+                Шиномонтаж Ужгород - Формула-1: Балансування, Ремонт, Заміна Шин
+            </h1>
             <DesktopWrapper>
                 <Box>
                     <img
