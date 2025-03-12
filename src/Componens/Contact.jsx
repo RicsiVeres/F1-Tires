@@ -24,15 +24,15 @@ const Contact = () => {
         setShowMessage(true);
 
         emailjs.send(
-            'service_jqm4fco',
-            'template_sdb8tit',
+            'service_r12xolp',
+            'template_3pdrh5s',
             {
                 subject: formData.subject,
                 email: formData.email,
                 phone: formData.phone,
                 message: formData.message,
             },
-            'ydn1XkDmFammlibxl'
+            '66QXPINpRJ8A2sF3M'//public
         )
             .then(() => {
                 setSendStatus('success');

@@ -15,9 +15,9 @@ function HeaderBar() {
                     +38 (099) 096-14-99
                 </ContactLink>
 
-                <ContactLink href="mailto:f1-tires@kinchesh.com">
+                <ContactLink href="mailto:f1shynomontazh@gmail.com">
                     <StyledEmailIcon />
-                    f1-tires@kinchesh.com
+                    f1shynomontazh@gmail.com
                 </ContactLink>
 
                 <ContactLink
