@@ -19,35 +19,44 @@ function Services() {
         const fetchSheetData = async () => {
             const spreadsheetId = import.meta.env.VITE_GOOGLE_SHEETS_ID
             const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
-            const lang = i18n.language === 'uk' ? 'ua' : i18n.language;
+
+            // Használjuk a resolvedLanguage-t és konvertáljuk 'uk' -> 'ua'
+            const lang = i18n.resolvedLanguage === 'uk' ? 'ua' : i18n.resolvedLanguage;
 
             try {
-                // 1. Get all sheets
+                // 1. Összes sheet lekérése
                 const metadataResponse = await fetch(
                     `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}?key=${apiKey}&fields=sheets(properties(title))`
                 );
                 const { sheets } = await metadataResponse.json();
 
-                // 2. Find sheet by language code
-                const sheet = sheets.find(s => s.properties.title.toLowerCase() === lang);
-                if (!sheet) throw new Error(`Sheet for language ${lang} not found`);
+                // 2. Sheet keresése prioritások szerint
+                const supportedLanguages = [lang, 'ua']; // Első a nyelv, majd ukrán
+                let sheet = null;
 
-                // 3. Get data from language-specific sheet
+                for (const lng of supportedLanguages) {
+                    sheet = sheets.find(s => s.properties.title.toLowerCase() === lng.toLowerCase());
+                    if (sheet) break;
+                }
+
+                if (!sheet) throw new Error('Nem található sheet!');
+
+                // 3. Adatok lekérése
                 const dataResponse = await fetch(
                     `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheet.properties.title}!A2:C?key=${apiKey}`
                 );
                 const { values } = await dataResponse.json();
 
-                // 4. Update services
+                // 4. Szolgáltatások frissítése
                 setMainServices(values.slice(0, 3).map(([title, desc, price]) => ({ title, desc, price })));
                 setAdditionalServices(values.slice(3, 6).map(([title, desc, price]) => ({ title, desc, price })));
             } catch (error) {
-                console.error("Error loading services:", error);
+                console.error("Hiba a szolgáltatások betöltésekor:", error);
             }
         };
 
         fetchSheetData();
-    }, [i18n.language]);
+    }, [i18n.resolvedLanguage]); // resolvedLanguage függőség
 
     return (
         <Element name="services">
